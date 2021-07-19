@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
 import {Recipe} from './components/Recipe';
-
+import style from './components/Recipe.module.css';
 
 
 function App() {
@@ -45,10 +45,11 @@ function App() {
         <input className="search-bar" type="text" name="search_text"/>
         <button className="search-button" type="submit"> Search </button>
       </form>
+      <div className={style.flexcontainer}>
       {recipe.map(r => (
-        <Recipe key={r.recipe.lable} title={r.recipe.label} calories={r.recipe.calories} image={r.recipe.image} />
+        <Recipe key={r.recipe.lable} title={r.recipe.label} calories={r.recipe.calories} image={r.recipe.image} ingredients={r.recipe.ingredients}/>
       ))}
-      
+      </div>
     </div>
   );
 }
